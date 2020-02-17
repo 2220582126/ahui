@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <!-- let  ES6增加的块级作用域，不允许重复声明变量-->
+    <script>
+        // let a="8u"  let不能重复声明，var可以但是会覆盖
+        let a="1"
+        {
+            let a="2"
+            alert(a)
+        }
+        {
+            let a="3" 
+            alert(a)
+        }
+    //    块级作用域不会改变原来的值也不会覆盖原来的值，也不会污染全局
+        alert(a)
+        let as="今天是2月16日"
+        alert(as)
+        // var btn="dd"
+        var btn=document.getElementsByTagName("button")
+        for(var i=0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                alert(i)
+                // alert(i)下次循环完后自动释放，污染全局。你循环你的，跟我没关系
+            }
+        }
+    </script>
+    
+</body>
+</html>

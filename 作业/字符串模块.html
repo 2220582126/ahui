@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+		<li>
+			<h1>蝙蝠</h1>
+			<h2>口罩</h2>
+			<h3>病毒</h3>
+		</li>
+    </ul>
+    <button onclick="add()">点击追加</button>
+    <script  src="https://code.jquery.com/jquery-3.4.1.min.js">
+
+        let title = '蔬菜';
+		let tab1 = '菠菜';
+		let tab2 = '生菜';
+
+		let str = `
+			<li>
+				<h3>${title}</h3>
+				<p>${tab1}</p>
+				<p>${tab2}</p>
+			</li>
+		`;
+
+
+		// 字符串模板 ``
+		function add(){
+			$('ul').first().append(str);
+		}
+
+    </script>
+</body>
+</html>

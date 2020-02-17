@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <SCript>
+
+        // const常量
+            // 一旦声明 只能调用不能修改
+        let a="ddd";
+        function str(){
+            alert(a);
+            // 变量体内优先调用，alert'在变量前面，TDZ暂时性死区
+            let a="ccc";
+        }
+        str()
+    </SCript>
+</body>
+</html>

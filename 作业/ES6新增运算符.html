@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ... 数组展开运算符
+        // 用于数组中只有一个参数的 可以利用...进行分开转成字符串
+
+
+        function a(a,b){
+            return a*b;
+        }
+        // console.log(a([10,20]))
+        // 结果NAN 数组中只有一个数
+
+        console.log(a(...[10,20]))
+        // 结果200
+
+
+        var str=["dsjh","ffg","dfgd","rger"]
+        console.log(str.join("."))
+        console.log(...str)
+        // 使用join分割成字符串，可以指定分隔符，...一样有分割作用
+
+
+
+        alert(10+"20")
+        alert(20+20+"10")
+        // 1020     4010
+        alert(Math.pow(2,4))
+        // 2的4次方 幂运算
+    </script>
+</body>
+</html>
