@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 创建对象
+        new Object()
+        {
+
+        }
+        // new du()
+        
+        var name='张飞';
+        var age="20";
+        var sex='男';
+        let bod={
+            name:name,
+            age:age,
+            sex:sex,
+            say:function(){
+                alert("哥哥！")
+            }
+        }
+        console.log(bod)
+        bod.say()
+
+        let bod2={
+            name,
+            age,
+            sex,
+            say(){
+                console.log("哥哥请坐！")
+            }
+        }
+        console.log(bod2)
+        bod2.say()
+
+
+        let demo = () =>{
+            return '哥哥啊！'
+        }
+        console.log(demo)
+    </script>
+</body>
+</html>

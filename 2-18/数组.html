@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Array.from()  方法用于将两类对象转为真正的数组
+         var arr='a,b,c';
+         console.log(arr)
+         let arr1=Array.from(arr)
+         console.log(arr1)
+
+        //  forEach()   方法对数组的每个元素执行一次提供的函数
+        arr1.forEach(function(age){
+            console.log(age)
+            console.log(arr1.length)
+        })
+         Array.of(3, 11, 8) // [3,11,8]   
+         Array.of(3) // [3]   
+         Array.of(3).length // 1
+
+        // 数组实例的includes()    检查值是否存在   
+         [1, 2, 3].includes(2);     // true  
+         [1, 2, 3].includes(4);     // false   
+         [1, 2, NaN].includes(NaN); // true 
+
+        //  数组实例的entries()，keys()和values()   
+         //entries()是对键值对的遍历 keys()是对键名的遍历、values()是对键值的遍历   
+          for (let index of ['a', 'b'].keys()) {
+                   console.log(index);   
+             }     
+         for (let elem of ['a', 'b'].values()) {  
+                   console.log(elem);  
+           }
+        for (let [index, elem] of ['a', 'b'].entries()) {
+             console.log(index, elem);    
+            }
+    </script>
+</body>
+</html>
