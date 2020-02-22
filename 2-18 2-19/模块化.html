@@ -9,13 +9,17 @@
     <script type="module">
         // module : 模块-模组
     import {food,bing,app,ai,demo as func_demo} from './mokuai.js'
-
+    import name from './mokuai.js';
+    // 接受所有，跟键名没关系，拿数据
+    console.log(name)
     console.log(food,bing,ai,app)
     console.log(func_demo())
     // 来自哪里 开启服务器访问
 
     // 模块功能主要由两个命令构成： export 和 import 。
     //  export 命令用于规定模块的对外接口， import 命令用于输入其他模块提供的功能。
+    // 1， export                   使用import接受的时候必须加{}    内部必须使用制定好的关键字
+        // 2. export default        不使用{}         不需要指定关键字
     </script>
 </body>
 </html>

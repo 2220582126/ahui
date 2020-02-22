@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}</h1>
+    </div>
+    <script src="./lib/vue-2.6.10.js"></script>
+    <script>
+        const vm=new Vue({
+            el:'#app',
+            // 挂载点，绑定到app
+            data:{
+                // 数据驱动，里面放app的数据
+                title:'只是我第一个vue'
+            }
+        })
+        // 单页程序
+    </script>
+</body>
+</html>

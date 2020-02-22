@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{title}}张飞 {{str}}</h1>
+        <h1 v-text="title + '' + str + '张飞'"></h1>
+        <p v-html="arr[0]"></p>
+        <p v-html="arr[1]"></p>
+        <p v-cloak>{{title}}</p>
+        <img src="./img/1.jpg" alt=""><br>
+        <img v-bind:src="imges" v-bind:title="data" :width="kuan" alt="">
+文本1： <input type="text" v-bind:value='s'>
+        <hr>
+文本2： <input type="text" v-model:value='sc'>
+        <p>{{sc}}</p>
+        <input type="radio" v-model='imges' value='img/2.jpg' name="ssss">
+        <input type="radio" v-model='imges' value='img/1.jpg' name="ssss">
+        <!-- v-model 双向数据绑定，双向数据流，数据更改后返回数据再读取 -->
+        <!-- 
+                v-model 应用场景
+                    1.表单数据收集
+         -->
+        <!-- v-text  文本指令   多个数据使用拼接方法 ，直接加载  -->
+        <!-- {{ vue 视图层  模板占位符，解析变量，拿data里的数据，网速满的情况下可能会暴漏源码  }} -->
+    </div>
+    <script src="./lib/vue-2.6.10.js"></script>
+    <script>
+        const vm=new Vue({
+            el:'#app',
+            // 挂载点，绑定到app
+            data:{
+                // 数据驱动，里面放app的数据，model层
+                title:'只是我第一个vue',
+                str:'vue的指令',
+                name:'v-text和{{}}的区别',
+                arr:['a','b','c'],
+                sss:'v-bind指令',
+                imges:'img/1.jpg',
+                kuan:'500px',
+                data:'今天的日期是:'+new Date().toLocaleString(),
+                s:'???',
+                sc:'ss',
+            }
+        })
+        // 单页程序
+    </script>
+</body>
+</html>
