@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script type="text/javascript" src="vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+
+		<pp></pp>	
+		<lo></lo>
+
+		</div>	
+			
+
+		<script type="text/javascript">
+			
+			const pp = {
+				template:`
+					<p>让我做个好人</p>
+				`
+			} 	
+
+		Vue.component("lo",{
+			template:`
+					<p>让我人</p>
+				`
+		})
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+				
+				},
+				methods:{},
+		
+				components:{
+				pp
+				
+				}			
+			});
+
+		</script>
+	</body>
+</html>

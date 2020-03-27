@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    img{
+        width: 400px;
+        height: 400px;
+    }
+    #img2{
+        border-radius: 50%;
+    }
+    input{
+        width: 300px;
+        height: 35px;
+        border:1px solid blue;
+    }
+</style>
+<body>
+    <script src="vue-2.6.10.js"></script>
+    <div id="box">
+        <!-- <img :src="src" alt="" :id="id">
+        <br><br>
+		图片：   图片1 <input type="radio" name="imgpath" v-model="src" value="./1.jpg">
+				图片2 <input type="radio" name="imgpath" v-model="src" value="./2.jpg">
+		
+		<br><br>
+		风格1：  矩形<input type="radio" name="style" v-model="id" value="img1"> 
+		 		 圆形<input type="radio" name="style" v-model="id" value="img2">  -->
+
+                  <input type="text" name="" v-model="int">
+                 <p v-once>{{ int }}</p>
+                        <br><br>
+        
+                  <input type="text" name="" v-model.lazy="int2">
+                  <p>{{ int2 }}</p>
+                  
+          
+                  <br><br>
+                    <input type="text" name="" v-model.number="int3">
+                  <p>{{ int3 }}</p>
+                  
+          
+                  <br><br>
+                  <input type="text" name="" v-model.trim="int4">
+                  <p>{{ int4.length }}</p>           
+      
+                  <ul>
+                    <!-- <li v-for="item in books">
+                        <ol>
+                            <li>id:{{ item.id }}</li>
+                            <li>作者:{{ item.auth }}</li>
+                            <li>名称:{{ item.bookname }}</li>
+                        </ol>
+                    </li> -->
+
+                    <li v-for="(item,key) in books" :key="item.id">
+                        <input type="checkbox" name="">
+                        id:{{ item.id }}   	
+                        作者:{{ item.auth }} 	
+                        名称:{{ item.bookname }} 	
+                </li>
+                <button v-on:click="add()">点击添加选项</button>
+                  </ul>
+          
+
+    </div>
+    <script>
+    const mv=new Vue({
+        el:"#box ",
+            data:{
+             src:"./1.jpg",
+             id:"img1",
+             int:"中安大大哇2第三方",
+             int2:"中安大方",
+             int3:"22aaa",
+             int4:"qwe eqwe",
+             books:[
+					{id:1,auth:'罗贯中','bookname':'《三国演义》'},
+					{id:2,auth:'吴承恩','bookname':'《西游记》'},
+					{id:3,auth:'曹雪芹','bookname':'《红楼梦》'},
+					{id:4,auth:'施耐庵','bookname':'《水浒传》'},
+				]
+
+         
+            
+            } ,
+            methods:{
+				add:function(){
+					let book = {id:5,auth:'郑老师','bookname':'金瓶梅2'}
+			
+					this.books.push(book); 
+				
+				}
+			}
+    })
+    </script>
+</body>
+</html>

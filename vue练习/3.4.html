@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 20px;
+			height: 20px;
+			background:blue;
+			border-radius: 50%;
+		}
+		
+	</style>
+</head>
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+
+		<button @click="flag = !flag">揍你</button>
+		
+
+		<transition 
+			v-on:before-enter="beforeEnter"
+			v-on:enter="enter"
+			v-on:after-enter="afterEnter"
+		>
+			<div class="box" v-show="flag"></div>
+		</transition>
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				
+				flag:false
+			},
+			methods:{
+				beforeEnter(el){
+				
+					el.style.transform = "translate(0,0)";
+				},
+				enter(el,done){
+					
+					el.offsetTop;
+					el.style.transform = "translate(555px,450px)";
+					el.style.transition = "all 2s ease";
+					done();
+				},
+				afterEnter(el){
+					this.flag = !this.flag
+				}
+			}
+
+		})
+
+	</script>
+</body>
+</html>

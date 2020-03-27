@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script type="text/javascript" src="vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+	
+	
+
+			<my-count></my-count>
+		</div>
+		
+
+		<template id="count">
+			<div>
+		
+				<h5>当前的数据是：{{ num }}</h5>
+				<button @click="add()">bian</button>
+			</div>
+		</template>
+		
+
+
+
+		<script type="text/javascript">
+		
+			Vue.component('my-count',{
+				template:'#count',
+				
+				data(){
+					return {
+						num:"nihao",
+					
+					}
+				},
+				methods:{
+					add(){
+						this.num = this.num+"shuai";
+					}
+				}
+
+			});
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+			
+		
+				}
+		
+			});
+
+		</script>
+	</body>
+</html>

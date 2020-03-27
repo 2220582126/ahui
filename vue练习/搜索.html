@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		li{
+			width: 300px;
+			height: 40px;
+			border:1px solid orange;
+			line-height: 40px;
+		}
+
+		.active{
+			background: #666;
+			color:#fff;
+			font-weight: bold;
+		}
+		
+	</style>
+	<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+</head>
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<script type="text/javascript" src="vue-resource.js"></script>
+<body>
+	<div id="app">
+	
+			
+		搜索： <input type="text" name=""  v-model="searchWord" @keyup="search($event)" @keyup.down="downChange()" @keyup.up="upChange()" @keyup.enter="searchResource()">
+		<ul>
+			<li :class="{active:activeIndex == index}" v-for="(item,index) in lists" :key="item+index">{{ item }}</li>
+		</ul>
+
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+				title:'模拟百度搜索框',
+				lists:[],
+				searchWord:'',
+				activeIndex:-1,
+
+			},
+			methods:{
+				search(ent){
+				
+					if(ent.keyCode == 38 || ent.keyCode == 40){
+						return;
+					}
+
+					this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+					    	wd:this.searchWord
+						},{
+						    jsonp:'cb'
+						}).then(function(res){
+						
+						    this.lists = res.data.s;
+						},function(err){
+						    console.log(err);
+						});
+				},
+				downChange(){
+					let n = this.activeIndex + 1;
+					this.activeIndex = n;
+					if(this.activeIndex == this.lists.length){
+						this.activeIndex = 0;
+					}
+
+				
+					this.searchWord = this.lists[this.activeIndex];
+				},
+				upChange(){
+					let n = this.activeIndex - 1;
+					if(n < 0){
+						this.activeIndex = this.lists.length - 1;
+					}else{
+						this.activeIndex = n;
+					}
+				},
+				searchResource(){
+					let url = 'https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&tn=02003390_43_hao_pg&wd='+this.searchWord;
+					window.open(url);
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>

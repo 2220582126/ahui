@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./vue-2.6.10.js"></script>
+    <script src="./vue-router.js"></script>
+    <div id="box">
+        <router-link to="/wenzhang?id=1&cate=文件">文章之秀做鱼人多</router-link><br><br>
+        <router-link to="/wenzhang?id=2&cate=末班">天作之哈尔</router-link><br><br>
+        <router-link to="/wenzhang1/20/情趣">文章之秀</router-link><br><br>
+        <router-link to="/wenzhang1/21/生活">天作尔</router-link><br><br>
+        <router-view></router-view>
+    </div>
+    <template id="wenzhang">
+        <div>
+            <h3>id 号:{{ $route.query.id }},文章：{{ $route.query.cate }}</h3>
+        </div>
+
+    </template>
+    <template id="wenzhang1">
+        <div>
+            <h3>id 号:{{ $route.params.id }},文章：{{ $route.params.yu }}</h3>
+        </div>
+
+    </template>
+    <script>
+
+        const wenzhang = {template:"#wenzhang"}
+        const wenzhang1 = {template:"#wenzhang1"}
+        const routes = [
+            {
+                path:'/wenzhang',
+                component:wenzhang
+            },
+            {
+                path:'/wenzhang1/:id/:yu',
+                component:wenzhang1
+            }
+        ]
+        const router = new VueRouter({
+            routes
+        })
+        const vm = new Vue({
+            router,
+            el:"#box",
+            data:{
+
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+          
+     <h2 id="biaoti">你中奖了</h2>
+        <script>
+    //    变量解析赋值 
+        
+        // let [a,b,c] = [10,,20];
+		// console.log(a,b,c)
+
+        // let [a,b,c] = [10,[211,222],30];
+		// console.log(a,b,c)
+
+		// let [a,[b],c] = [10,[20],30];
+		// console.log(a,b,c)
+
+
+		// let [a,b,...c] = [10,20,40,50,[20,11]];
+		// console.log(a,b,c)	
+        
+    //      字符串
+
+    let str = '我求你死去吧？？';
+
+    // for(let aa of str){
+    // 	console.log(aa);
+    // }
+
+
+    // console.log(str.startsWith('我'));
+    // console.log(str.endsWith('？？'));
+    // console.log(str.includes('死去'));
+
+    // var qq = 'hsdas asda'; 
+    // console.log (qq.startsWith('hs', 0) )
+    // console.log (qq.endsWith('a', 10)) 
+    // console.log (qq.includes('da', 3) )
+            
+	// console.log('我是你大爷'.repeat(5)+'秀儿');
+
+    // console.log('1'.padStart(4,'2'));
+    // console.log('123456789'.padStart(8,'0'));
+    // console.log('1234567'.padStart(8,'0'));
+    // console.log('02-17'.padStart(10,'2020-ym-rq'));
+    // console.log('2020-02-17'.padStart(10,'2020-ym-rq'));
+
+        // 箭头函数
+        // let demo = str => str;
+		// console.log(demo('你好'));
+
+		// let demo2 = (a,b) => a+b;
+		// console.log(demo2(10,20));
+
+		// function cc(){
+		// 	console.log(this); 
+
+		// }
+        let biaoti = document.getElementById('biaoti');
+		biaoti.onclick = function(){
+			console.log(this)
+	            setTimeout(() => {
+		
+				console.log(this);
+				this.innerHTML = '<span style="color:red">你中奖了</span>';
+			},2000);
+		}
+        let sum = (...arr)=>{
+		
+			let s = 0;
+			for(let i = 0;i<arr.length;i++){
+				s += arr[i]; 
+		
+			}
+			return s;
+		}
+
+		console.log(sum(20,10,11,22,11));
+
+
+        </script>
+</body>
+</html>

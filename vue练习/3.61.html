@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="vue-2.6.10.js"></script>
+    <div id="app">
+      <da :mm="nn"></da>
+      <da :mm="unm"></da>
+      <da :mm="'nisiba'"></da>
+    </div> 
+       <template id="eal">
+           <div>
+               <p>我是大好人</p>
+               <br>
+                <h3>没错你说的对 <span>{{ mm }}</span></h3>
+                </div>
+       </template> 
+    <script>
+        Vue.component("da",{
+            template:"#eal",
+            props:['mm'],
+
+        })
+        const vmn = new Vue({
+            el:"#app",
+            data:{
+                unm:"dasd",
+                nn:"21"
+            }
+        })
+    </script>
+</body>
+</html>

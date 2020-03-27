@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./vue-2.6.10.js"></script>
+    <div id="box">
+        <p>{{ tlite }}</p>
+    </div>
+    <script>
+        const n = new  Vue({
+            // el:"#box",
+            data:{
+             tlite:"sad阖家安康伤筋动骨科利达"
+            }
+        }).$mount("#box");
+ console.log(n.$el)
+  n.$data.tlite="djakshdjashd";
+    </script> 
+</body>
+</html>

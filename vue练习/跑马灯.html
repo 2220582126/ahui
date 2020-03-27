@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./vue-2.6.10.js"> </script>
+    <div id="div">
+        <h3 v-html="b"></h3>
+    </div>
+    <script>
+ 		const vm = new Vue({
+			el:'#div',
+			data:{
+				title:'犯我中华者，虽远必诛',
+				b:''
+			},
+			methods:{
+				run(){
+					let i = 0;
+					setInterval(()=>{
+			
+						let arr = this.title.split('');
+						let str = '<span style="color:red;font-size:25px;">'+arr[i]+'</span>';
+						arr[i] = str;					
+			
+						this.b = arr.join('');
+
+						i++;
+						if(i == arr.length){
+							i = 0;
+						}
+
+					},1000);
+					
+				}
+			}
+		});
+		vm.run();
+    </script>
+</body>
+</html>

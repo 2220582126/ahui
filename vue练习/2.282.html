@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<script type="text/javascript" src="vue-resource.js"></script>
+
+<body>
+	
+	<div id="box">
+
+		
+		<button @click="jsonps()">点击发送ajax</button>
+
+	</div>
+	
+	<script type="text/javascript">
+		new Vue({
+			el:"#box",
+			data:{
+
+				url:'http://vue1906.strive1.top/banner/getimg2.php', 
+			},
+			methods:{
+				jsonps(){
+		
+					this.$http.jsonp(this.url,{a:10},{jsonp:'cb'}).then(res=>{
+						console.log(res.data)
+					},err=>{
+						console.log('失败了')
+					});
+				}
+			}
+		})
+
+
+
+	</script>
+
+</body>
+</html>

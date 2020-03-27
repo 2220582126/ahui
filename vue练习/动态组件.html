@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			border:1px solid red;
+		}
+	</style>
+</head>
+<script src="vue-2.6.10.js"></script>
+<body>
+	<div id="app">
+
+		
+		<button @click="tabname = 'home'">首页</button>
+		<button @click="tabname = 'login'">登录</button>
+		<button @click="tabname = 'register'">注册</button>
+		
+		
+		<component :is="tabname"></component>
+
+	</div>
+
+	<script type="text/javascript">
+
+		Vue.component('login',{
+			template:"<div class='box'>登录组件。。。</div>"
+		});
+
+		Vue.component('register',{
+			template:"<div class='box'>注册组件。。。</div>"
+		});
+
+
+		Vue.component('home',{
+			template:"<div class='box'>前台首页组件。。。</div>"
+		});
+
+
+		new Vue({
+			el:'#app',
+			data:{
+				title:'动态组件',
+				tabname:'home'
+			}
+		})
+
+
+	</script>
+</body>
+</html>

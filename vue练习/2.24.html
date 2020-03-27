@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #div1{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    #div2{
+        width: 200px;
+        height: 200px;
+        background-color:yellow;
+    }
+</style>
+<body>
+    <script src="./vue-2.6.10.js"></script>
+    <div id="div">
+        <!-- 计算器 -->
+        数值1： <input type="text" name="" v-model="num1">
+		<br><br>
+		<input type="radio"  name="s" v-model="s" value="+">+</input>
+		<input type="radio"  name="s" v-model="s" value="-">-</input>
+		<input type="radio"  name="s" v-model="s" value="*">*</input>
+		<input type="radio"  name="s" v-model="s" value="/">/</input>
+		<br><br>
+		数值2： <input type="text" name="" v-model="num2">
+		<br><br>
+		<button v-on:click="sum()">=</button>
+		<br><br>
+        值： <input type="text" name="" v-model="zong">
+        <br> <br> 
+        <!-- v-if v-show -->
+         <button v-on:click="m=!m">点击切换</button>
+        <div id="div1" v-if="m"></div>
+        <div id="div2" v-show="m"> </div> 
+
+     <!-- v-if v-else  -->
+
+    <template v-if="cheng < 60">
+			<div>未及格</div>
+		</template>
+		<template v-else-if=" cheng == 60">
+			<div>及格</div>
+		</template>
+		<template v-else>
+			<div>恭喜你老铁</div>
+        </template> 
+      
+   
+    <script>
+        const xin=new Vue({
+            el:"#div",
+            data:{
+            num1:"",
+            num2:"",
+            zong:"",
+            s:"",
+            m:"true",
+            cheng:"80",
+        
+            },
+            methods:{
+                sum(){
+       
+					let n1 = this.num1;
+					let n2 = this.num2;
+					let s = this.s;
+		
+					this.zong =  eval(n1 + s + n2);
+                }
+
+            }
+
+  
+			
+        });
+    </script>
+</body>
+</html>

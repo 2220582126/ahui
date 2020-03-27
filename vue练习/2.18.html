@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="h2">waddawd</h2>
+    <script type="module">
+        // 数组
+    let arr={"0":10,"1":20,"2":30,length:3}
+    console.log(Array.from(arr))
+    
+    var arr1 = ['a', 'b', 'c']; 
+    arr1.forEach(function(element) { 
+        console.log(element); 
+        });
+
+    console.log(Array.of(3,1,2))
+    
+    console.log([1, 2, 3].includes(2)); 
+    console.log([1, 2, 3].includes(5)); 
+
+
+        // 对象
+	//     let name = '张宏宝'
+	// 	 let age = 22;
+	// 	 let sex = '男';
+    
+	// let obj = {name,age,sex}
+	//     console.log(obj)
+
+
+
+
+		
+		// alert(0 == false);
+		// alert(1 == false);
+
+
+		// alert({} == {});
+		
+		// alert(Object.is({},{})); 
+		
+		// alert(+0 == -0) 
+	
+        // alert(Object.is(+0,-0)); 
+        
+
+        // 模块化
+
+        // import {host,title} from './2.18.js'
+        // console.log(host)
+        // console.log(title)
+        // document.getElementById("h2").innerHTML=title;
+
+          import {app,desc as  cc} from './2.18.js'
+              console.log(app)
+         console.log(cc)
+    </script>
+</body>
+</html>

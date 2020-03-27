@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue-2.6.10.js"></script>
+    <script src="vue-router.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in items" :key="index"><input type="checkbox" name="" id="" :value="item.id"
+                    v-model="checkedData"> {{ item.name }} </li>
+        </ul>
+
+        <button @click="allCheckboxTrue()">全选</button>
+        <button @click="allCheckboxFalse()">全不选</button>
+        <button @click="allCheckboxReverse()">反选</button>
+    </div>
+    <script>
+      
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                title: "vue 实现 全选 反选 全不选",
+                items: [{
+                        id: 1,
+                        name: '刘德华'
+                    },
+                    {
+                        id: 2,
+                        name: '黎明'
+                    },
+                    {
+                        id: 3,
+                        name: '张学友'
+                    },
+                    {
+                        id: 4,
+                        name: '郭富城'
+                    },
+                ],
+                checkedData: []
+            },
+            methods: {
+                allCheckboxTrue() {
+              
+                    let arr = [];
+                    this.items.forEach(element => {
+                        arr.push(element.id);
+                    });
+                  
+                    this.checkedData = arr;
+                },
+                allCheckboxFalse() {
+                    this.checkedData = [];
+                },
+                allCheckboxReverse() {
+                  
+                    let arr = [];
+                    this.items.forEach(element => {
+                        arr.push(element.id);
+                    });
+                    
+                    
+                    let temp = [];
+                    arr.forEach((item)=>{
+                        if(this.checkedData.indexOf(item) === -1){
+                            temp.push(item);
+                        }
+                     
+                    });
+
+             
+                    this.checkedData = temp;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

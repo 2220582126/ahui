@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<body>
+	<div id="box">
+	
+
+		<input type="text" name="" v-focus>
+
+
+	</div>
+
+	<script type="text/javascript">
+		
+	
+		Vue.directive('focus',{
+	 
+			bind:function(el){
+				el.style.border = '1px solid red'
+		
+			},
+	
+			inserted:function(el){
+			
+				el.style.width = '100px';
+            
+
+
+		
+				el.focus();
+			}
+		});
+
+		const vm = new Vue({
+            el:"#box",
+			data:{
+				title:' 自定义指令',
+			},
+			methods:{
+				
+			}
+		});
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+	</head>
+	<script src="vue-2.6.10.js"></script>
+	<body>
+		
+		<div id="app">
+		
+			
+			<my-lists>
+                 
+                    <template v-slot:fange>
+                        <ul>
+                            <li>nibaba</li>
+                        </ul>
+                        <h2>。。。。。。。。。。。。。。。</h2>
+                    </template>
+				<template v-slot:xiaoxianrou>
+					<ul>
+						<li>蔡徐坤</li>
+						<li>吴亦凡</li>
+						<li>鹿晗</li>
+						<li>杨洋</li>
+					</ul>
+				</template>
+				
+			</my-lists>
+		</div>
+		
+		<template id="lists">
+			<div>
+				
+	            <slot name="xiaoxianrou"></slot>
+
+                <slot name="fange"></slot>
+			</div>
+		</template>
+
+		<script type="text/javascript">
+			
+			Vue.component('my-lists',{
+				template:"#lists",
+			});
+
+
+			const vm = new Vue({
+				el:"#app",
+				data:{
+					
+				},
+			
+			});
+
+		</script>
+	</body>
+</html>

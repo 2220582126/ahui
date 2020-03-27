@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input{
+        width: 400px;
+        height: 30px;
+        border:1px solid blue;
+    }
+</style>
+<body>
+    
+    <script src="./vue-2.6.10.js"></script>
+    <div id="box">
+        <h1 v-text="hh +' '+ bb"></h1>
+        <h3 v-text="hh+'郭美丽'"> </h3>
+        <h2>{{ bb }}</h2>
+        <h3 v-html='cc'></h3>
+        <img v-bind:src="src" :alt="alt">
+        <br>
+        <input type="text" v-model="s">
+        <hr>
+        <p>{{s}}</p>
+        </div>
+    <script>
+                // 全部
+        const b= new Vue({
+            el:"#box",
+            data:{
+                hh:"这是vuea",
+                bb:"6666",
+                cc:"<span style='color:blue;'>dasdaasdasda</span>",
+                src:"./1.jpg",
+                alt:"对不起实拍",
+                s:"仲尼状况良好集散地萨迪克老实交代阿"
+                
+            }
+        });
+
+
+    </script>
+</body>
+</html>

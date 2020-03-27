@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<body>
+	<div id="box">
+	
+		<input type="text" name="" v-model="str">
+		<p>{{ comStr }}</p>
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#box',
+			data:{
+		
+				str:'zhongguojiayou'
+			},
+			computed:{
+		
+				comStr:function(){
+					return this.str+'我是你爸';
+				}
+			}
+
+		})
+
+
+	</script>
+</body>
+</html>

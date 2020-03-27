@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.10.js"></script>
+    <script src="./lib/vue-router.js"></script>
+    <style>
+        .myactive{
+            color:red
+        }
+    </style>
+    <link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app">
+
+        <router-link :to="{name:'h'}">首页</router-link>
+        <router-link to="/login">登录</router-link>
+        <router-link to="/reg" tag="button">注册页面</router-link>
+
+        <transition :duration="{ enter: 600, leave: 300 }" enter-active-class="fadeIn" leave-active-class="fadeOut" mode="out-in">
+            <router-view class="animated"></router-view>
+        </transition>
+        
+
+    </div>
+
+    <template id="home">
+        <div>
+            <h3>home.....</h3>
+        </div>
+    </template>
+
+    <template id="login">
+        <div>
+            <h3>login</h3>
+        </div>
+    </template>
+
+    <template id="my404">
+        <div>
+      
+            <img src="./404.jpg" alt="">
+        </div>
+    </template>
+    <script>
+        const home = {
+            template: "#home"
+        }
+        const login = {
+            template: '#login'
+        }
+
+        const my404 = {
+            template:"#my404"
+        }
+
+        const routes = [{
+                path: '/www/index/hello/home',
+                component: home,
+                name:'h'
+            },
+            {
+                path: '/login',
+                component: login
+            },
+            {
+                path:'/',
+                redirect:'/www/index/hello/home'
+            },
+            {
+                path:'*',
+                component:my404
+            }
+
+        ]
+
+        const router = new VueRouter({
+            routes,
+            linkActiveClass:'myactive'
+        })
+
+        const vm = new Vue({
+            router,
+            el: '#app',
+            data: {
+             
+            },
+            methods: {}
+        });
+    </script>
+</body>
+
+</html>

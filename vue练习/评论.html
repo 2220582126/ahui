@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.6.10.js"></script>
+    <script src="./lib/vue-router.js"></script>
+    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h3 class="text-info text-center">留言板</h3>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="(item, index) in items" :key="index">
+                <span class="badge" v-text="item.uname"></span>
+                <span v-text="item.say"></span>
+            </li>
+        </ul>
+
+        <my-common v-on:func="addItems"></my-common>
+
+    </div>
+
+    <template id="common">
+        <div>
+            <h3 class="text-center">编辑内容</h3>
+            <form @submit.prevent="commit()">
+                <div class="form-group">
+                    <label for="uname">用户名</label>
+                    <input type="text" class="form-control" id="uname" placeholder="用户名" v-model="uname">
+                </div>
+                <div class="form-group">
+                    <label for="content">内容</label>
+                    <textarea id="content" class="form-control" cols="30" rows="10" maxlength="120"
+                        placeholder="最多只能 bb 120字" v-model="say"></textarea>
+                </div>
+                <button type="submit" class="btn btn-danger form-control">Submit</button>
+            </form>
+        </div>
+    </template>
+
+
+    <script>
+        Vue.component('my-common', {
+            template: '#common',
+            props: ['func'],
+            methods: {
+                commit() {
+                
+                    let jsondata = {
+                        uname: this.uname,
+                        say: this.say
+                    };
+                    this.$emit('func', jsondata);
+                  
+                    let arr = JSON.parse(localStorage.getItem('common_data') || '[]'); 
+                    arr.push(jsondata)
+           
+                    localStorage.setItem('common_data', JSON.stringify(arr)) 
+
+                }
+            },
+            data() {
+                return {
+                    uname: '',
+                    say: ''
+                }
+            }
+        })
+
+
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                items: []
+            },
+            methods: {
+                addItems(param) {
+                    this.items.push(param);
+                },
+                getCommons(){
+              
+                    this.items = JSON.parse(localStorage.getItem('common_data') || '[]');
+                }
+            },
+            mounted() {
+                this.getCommons();
+            },
+
+        });
+    </script>
+</body>
+
+</html>

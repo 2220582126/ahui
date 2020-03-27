@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<script type="text/javascript" src="vue-resource.js"></script>
+
+<body>
+	
+	<div id="app">
+
+		
+		<button @click="gets()">点击发送ajax</button>
+		<button @click="posts()">点击发送</button>
+
+	</div>
+	
+	<script type="text/javascript">
+		new Vue({
+			el:"#app",
+			data:{
+
+				url1:'http://vue1906.strive1.top/vueapi/1.php', 
+				url2:'http://vue1906.strive1.top/vueapi/2.php',	
+			},
+			methods:{
+				gets(){
+			
+					this.$http.get(this.url1,{a:10,b:20}).then(res=>{
+						console.log(res.data);
+					},err=>{
+						console.log('失败了')
+					});
+
+				},
+				posts(){
+					this.$http.post(this.url2,{a:100,b:200},{emulateJSON:true}).then(res=>{
+						console.log(res.data);
+					},err=>{
+						console.log('失败了')
+					});
+
+				}
+			}
+		})
+
+
+	</script>
+
+</body>
+</html>

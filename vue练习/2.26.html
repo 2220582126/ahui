@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .div{
+        width: 200px;
+        height: 200px;
+
+    }
+    .bg{
+        background-color: aqua;
+    }
+    .bad{
+        border:2px solid red;
+    }
+</style>
+<body>
+   <script src="./vue-2.6.10.js"></script>
+   <div id="box">
+        <div v-bind:class="div+' '+ bg +' '+bad"></div>
+        <div v-bind:class="[div, bg, bad]" ></div>
+        <div v-bind:class="{div, bg, bad}" ></div>
+        <!-- style -->
+        <div v-bind:style="{width:w,height:h,backgroundColor:b}" ></div>
+        <!-- -->
+   </div>
+   <script>
+       const n = new Vue({ 
+           el:"#box",
+           data:{
+            bg:"bg",
+            bad:"bad",
+            div:"div",
+            w:"200px",
+            h:"200px",
+            b:"red"
+           },
+           methods:{
+
+           }
+       })
+   </script> 
+</body>
+</html>

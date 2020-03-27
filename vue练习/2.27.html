@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="./vue-2.6.10.js"></script>
+<body>
+	
+	<div id="box">
+
+
+		<input type="text" name="" v-model="str">
+		
+		<p>{{ str | upper }}</p>
+
+        <p>{{ name | firstUpper }}</p>
+        <p v-html="colorFunc(c)"></p>
+
+	</div>
+	<script type="text/javascript">
+		
+	
+		 Vue.filter('upper',function(vals){
+	
+		 	return vals+'@qq.com';
+		 });
+         Vue.prototype.colorFunc = function(content){
+			return '<span style="color:red">'+content+'</span>';
+		}
+		const vm = new Vue({
+			el:"#box",
+			data:{
+                str:'',
+				name:'daye',
+                c:'我爱你个崔子'+
+
+			},
+			
+			filters:{
+				firstUpper:function(vals){
+			
+					return vals.charAt(0).toUpperCase()+vals.slice(3);
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="vue-2.6.10.js"></script>
+    <script src="vue-router.js"></script>
+    <style>
+        .head{
+            width: 100%;
+            height: 100px;
+            background: #ababab;
+            text-align: center;
+        }
+        .left{
+            width: 20%;
+            height: 400px;
+            background:rebeccapurple;
+            float: left;
+            text-align: center;
+        }
+        .content{
+            width: 60%;
+            height: 400px;
+            background:orange;
+            float: left;
+            text-align: center;
+        }
+        .right{
+            width: 20%;
+            height: 400px;
+            background:blue;
+            float: left;
+            text-align: center;
+        }
+    
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        
+        <!-- 设置 -->
+        <router-view class="head"></router-view>
+        <p style="clear:both;"></p>
+        <router-view class="left" name="left"></router-view>
+        <router-view class="content" name="content"></router-view>
+        <router-view class="right" name="right"></router-view>
+
+    </div>
+
+    <template id="headers">
+        <div>
+            <p>headers...</p>
+        </div>
+    </template>
+
+    <template id="left">
+        <div>
+            <p>left....</p>
+        </div>
+    </template>
+
+    <template id="content"> 
+        <div>
+            <p>content....</p>
+        </div>
+    </template>
+
+    <template id="right"> 
+        <div>
+            <p>right</p>
+        </div>
+    </template>
+    <script>
+       
+        const headers = {template:"#headers"}
+        const left = {template:"#left"}
+        const content = {template:"#content"}
+        const right = {template:"#right"}
+  
+        const routes =  [
+            {
+                path:"/",
+                components:{
+                    default:headers,
+                    left,
+                    content,
+                    right,
+                }
+            }
+
+        ]
+
+     
+        const router = new VueRouter({
+            routes
+        })
+
+
+      
+        const vm = new Vue({
+            router,
+           el:'#app',
+           data:{
+             
+           },
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>

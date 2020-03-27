@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 200px;
+			height: 200px;
+			background: blue;
+		}
+	</style>
+	<link href="https://cdn.bootcss.com/animate.css/3.7.2/animate.min.css" rel="stylesheet">
+</head>
+<script type="text/javascript" src="vue-2.6.10.js"></script>
+<body>
+	<div id="app" style="width: 400px;margin: auto;">
+
+		<button @click="flag = !flag">点击切换显示隐藏</button>
+		
+		<transition 
+			enter-active-class="bounceInLeft" 
+			leave-active-class="bounceOutRight"
+			:duration="{ enter: 200, leave: 500 }" 
+			>	
+			<div class="animated box" v-show="flag"></div>
+		</transition>
+
+	</div>
+	<script type="text/javascript">
+		const vm = new Vue({
+			el:'#app',
+			data:{
+	
+				flag:true
+			}
+
+		})
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		input{
+			width: 45%;
+			height: 40px;
+			border:1px solid orange;
+			outline: none;
+		}
+		
+
+		ul,li{
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+		}
+
+		ul{
+			margin-left: 150px;
+		}
+
+		li{
+			width: 50px;
+			height: 15px;
+			text-align: center;
+			line-height: 15px;
+			color:#ddd;
+			float: left;
+			background: #bbb;
+			font-size: 12px;
+			margin:5px;
+		}
+
+		.active{
+			background: orange;
+			color: #888;
+		}
+	</style>
+</head>
+<script type="text/javascript" src="./vue-2.6.10.js"></script>
+
+<body>
+	<div id="box">
+
+		密码： <input type="text" name="" @keyup="checkUpass()" v-model="upass">
+
+		<ul >
+			<li :class="{active:isType == 1}">弱</li>
+			<li :class="{active:isType == 2}">中</li>
+			<li :class="{active:isType == 3}">强</li>
+		</ul>
+	</div>
+
+	<script type="text/javascript">
+		const vm = new Vue({
+            el:"#box",
+			data:{
+		
+				upass:'',
+				isType:0,
+			},
+			methods:{
+				checkUpass(){
+	
+					 
+					 
+				
+					let upassType = [];
+		
+					let preg1 = /[a-zA-Z]+/;
+					if(preg1.test(this.upass)){
+						upassType.push('字母类型');
+					}
+
+					let preg2 = /[0-9]+/;
+					if(preg2.test(this.upass)){
+						upassType.push('数字类型');
+					}	
+
+					let preg3= /[\W_]+/;
+					if(preg3.test(this.upass)){
+						upassType.push('特殊类型');
+					}
+
+	
+					this.isType = upassType.length;
+				}
+			}
+		});
+
+	</script>
+</body>
+</html>
